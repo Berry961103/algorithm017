@@ -1,6 +1,6 @@
 ### 242. 有效的字母异位词
 
-    利用go中基本数据类型，string=byte=rune=uint8可以知道string=[]rune
+    利用go中基本数据类型，string=[]byte=[]rune=[]uint8可以知道string=[]rune
     定义一个map[rune]int 利用for。range获取string的每一位字符rune存入到一个map，
 
         for _, v := range s {
