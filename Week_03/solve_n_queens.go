@@ -27,8 +27,8 @@ func solveNQueens(n int) [][]string {
 	places := make([]int, n)
 
 	// recursive backtracking function
-	var search func(y int)
-	search = func(y int) {
+	var dfs func(y int)
+	dfs = func(y int) {
 		if y == n {
 			boards = append(boards, printBoard(places, n))
 			return
@@ -39,11 +39,11 @@ func solveNQueens(n int) [][]string {
 				continue
 			}
 			col[x], diag[x+y], diag2[x-y+n-1], places[x] = 1, 1, 1, y
-			search(y + 1)
+			dfs(y + 1)
 			col[x], diag[x+y], diag2[x-y+n-1], places[x] = 0, 0, 0, 0
 		}
 	}
 
-	search(0)
+	dfs(0)
 	return boards
 }
